@@ -1,0 +1,40 @@
+root@k8smaster:/var/log/apache2# uname -a
+Linux k8smaster 5.13.0-1031-azure #37~20.04.1-Ubuntu SMP Mon Jun 13 22:51:01 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+root@k8smaster:/var/log/apache2#
+
+
+
+root@k8smaster:/var/log/apache2# cat /etc/os-release
+NAME="Ubuntu"
+VERSION="20.04.4 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.4 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+root@k8smaster:/var/log/apache2#
+
+
+
+root@k8smaster:~# sudo wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+root@k8smaster:~# echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian focal contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+root@k8smaster:~# cat /etc/apt/sources.list.d/virtualbox.list
+deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian focal contrib
+root@k8smaster:~#
+
+
+
+# install available software updates
+sudo apt upgrade -y
+# install virtualbox
+sudo apt install virtualbox -y
+
+root@k8smaster:~# vboxmanage -version
+6.1.34r150636
+root@k8smaster:~#
+
